@@ -1,0 +1,27 @@
+<div class="addNumber jumbotron d-lg-flex">
+    <form method="POST" action="/user/search">
+        <label for="username">Insert username: </label>
+        <input type="text" id="username" name="username" />
+        <input type="submit" value="Submit"></input>
+    </form>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="success">
+                <th>Repository Name</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if error}} <span>{{error}}</span>{{/if}}
+            <td>
+                {{repos}}
+            </td>
+            <td>
+                {{reposHtml}}
+            </td>
+
+        </tbody>
+    </table>
+</div>
