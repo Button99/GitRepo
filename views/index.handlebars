@@ -1,4 +1,4 @@
-<div class="addNumber jumbotron d-lg-flex">
+<div class="addNumber jumbotron d-lg-flex" id="table">
     <form method="POST" action="/user/search">
         <label for="username">Insert username: </label>
         <input type="text" id="username" name="username" />
@@ -6,7 +6,7 @@
     </form>
 </div>
 <div>
-    <table class="table table-bordered">
+    <table class="table table-bordered" >
         <thead>
             <tr class="success">
                 <th>Repository Name</th>
@@ -14,14 +14,12 @@
             </tr>
         </thead>
         <tbody>
-            {{#if error}} <span>{{error}}</span>{{/if}}
-            <td>
-                {{repos}}
-            </td>
-            <td>
-                {{reposHtml}}
-            </td>
-
-        </tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td><a href={{this.html_url}}>{{this.html_url}}</a></td>
+            </tr>
+            {{/each}}
+       </tbody>
     </table>
 </div>
